@@ -111,10 +111,18 @@
                         <h2 class="page-title">Calendario</h2>
                         <button class="btn btn-primary" onclick="app.showAddEventModal()">+ Aggiungi Evento</button>
                     </div>
+                    <div class="calendar-header">
+                        <button class="calendar-nav-btn" onclick="app.previousMonth()">‹</button>
+                        <h3 id="calendarMonthYear"></h3>
+                        <button class="calendar-nav-btn" onclick="app.nextMonth()">›</button>
+                    </div>
                     <div class="calendar-filters">
                         <button class="filter-btn active" data-filter="all">Tutti</button>
                         <button class="filter-btn" data-filter="match">Partite</button>
                         <button class="filter-btn" data-filter="training">Allenamenti</button>
+                    </div>
+                    <div id="calendarGrid" class="calendar-grid">
+                        <!-- Calendar will be rendered here -->
                     </div>
                     <div id="calendarList" class="calendar-list">
                         <!-- Events will be loaded here -->

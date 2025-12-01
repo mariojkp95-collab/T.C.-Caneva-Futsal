@@ -11,6 +11,8 @@ const app = {
             potm: []
         }
     },
+    currentMonth: new Date().getMonth(),
+    currentYear: new Date().getFullYear(),
 
     init() {
         this.loadData();
@@ -392,7 +394,106 @@ const app = {
         });
     },
 
+    previousMonth() {
+        this.currentMonth--;
+        if (this.currentMonth < 0) {
+            this.currentMonth = 11;
+            this.currentYear--;
+        }
+        this.renderCalendar();
+    },
+
+    nextMonth() {
+        this.currentMonth++;
+        if (this.currentMonth > 11) {
+            this.currentMonth = 0;
+            this.currentYear++;
+        }
+        this.renderCalendar();
+    },
+
     renderCalendar(filter = 'all') {
+        this.renderCalendarGrid();
+        this.renderCalendarList(filter);
+    },
+
+    renderCalendarGrid() {
+        const monthNames = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
+                           'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+        
+        document.getElementById('calendarMonthYear').textContent = 
+            `${monthNames[this.currentMonth]} ${this.currentYear}`;
+
+        const firstDay = new Date(this.currentYear, this.currentMonth, 1);
+        const lastDay = new Date(this.currentYear, this.currentMonth + 1, 0);
+        const prevLastDay = new Date(this.currentYear, this.currentMonth, 0);
+        
+        const firstDayWeekday = firstDay.getDay();
+        const startDay = firstDayWeekday === 0 ? 6 : firstDayWeekday - 1;
+        
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        let calendarHTML = `
+            <div class="calendar-weekdays">
+                <div class="calendar-weekday">Lun</div>
+                <div class="calendar-weekday">Mar</div>
+                <div class="calendar-weekday">Mer</div>
+                <div class="calendar-weekday">Gio</div>
+                <div class="calendar-weekday">Ven</div>
+                <div class="calendar-weekday">Sab</div>
+                <div class="calendar-weekday">Dom</div>
+            </div>
+            <div class="calendar-days">
+        `;
+
+        // Previous month days
+        for (let i = startDay - 1; i >= 0; i--) {
+            const day = prevLastDay.getDate() - i;
+            calendarHTML += `<div class="calendar-day other-month"><span class="calendar-day-number">${day}</span></div>`;
+        }
+
+        // Current month days
+        for (let day = 1; day <= lastDay.getDate(); day++) {
+            const currentDate = new Date(this.currentYear, this.currentMonth, day);
+            currentDate.setHours(0, 0, 0, 0);
+            const isToday = currentDate.getTime() === today.getTime();
+            
+            const dayEvents = this.data.events.filter(event => {
+                if (!event.date) return false;
+                const eventDate = new Date(event.date);
+                eventDate.setHours(0, 0, 0, 0);
+                return eventDate.getTime() === currentDate.getTime();
+            });
+
+            let dotsHTML = '';
+            if (dayEvents.length > 0) {
+                dotsHTML = '<div class="calendar-day-events">';
+                dayEvents.slice(0, 3).forEach(event => {
+                    dotsHTML += `<div class="calendar-event-dot ${event.type}"></div>`;
+                });
+                dotsHTML += '</div>';
+            }
+
+            calendarHTML += `
+                <div class="calendar-day ${isToday ? 'today' : ''}">
+                    <span class="calendar-day-number">${day}</span>
+                    ${dotsHTML}
+                </div>
+            `;
+        }
+
+        // Next month days
+        const remainingDays = 42 - (startDay + lastDay.getDate());
+        for (let day = 1; day <= remainingDays; day++) {
+            calendarHTML += `<div class="calendar-day other-month"><span class="calendar-day-number">${day}</span></div>`;
+        }
+
+        calendarHTML += '</div>';
+        document.getElementById('calendarGrid').innerHTML = calendarHTML;
+    },
+
+    renderCalendarList(filter = 'all') {
         const container = document.getElementById('calendarList');
         let events = this.data.events;
 
