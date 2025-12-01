@@ -413,8 +413,8 @@ const app = {
     },
 
     renderCalendar(filter = 'all') {
+        this.currentFilter = filter || 'all';
         this.renderCalendarGrid();
-        this.renderCalendarList(filter);
     },
 
     renderCalendarGrid() {
@@ -463,22 +463,36 @@ const app = {
                 if (!event.date) return false;
                 const eventDate = new Date(event.date);
                 eventDate.setHours(0, 0, 0, 0);
-                return eventDate.getTime() === currentDate.getTime();
+                const dateMatches = eventDate.getTime() === currentDate.getTime();
+                
+                // Apply filter
+                if (this.currentFilter === 'all') return dateMatches;
+                if (this.currentFilter === 'match') return dateMatches && event.type === 'match';
+                if (this.currentFilter === 'training') return dateMatches && event.type === 'training';
+                return false;
             });
 
-            let dotsHTML = '';
+            let eventsHTML = '';
             if (dayEvents.length > 0) {
-                dotsHTML = '<div class="calendar-day-events">';
-                dayEvents.slice(0, 3).forEach(event => {
-                    dotsHTML += `<div class="calendar-event-dot ${event.type}"></div>`;
+                eventsHTML = '<div class="calendar-day-events">';
+                dayEvents.forEach(event => {
+                    const time = event.time || '';
+                    const title = event.opponent || event.title || 'Evento';
+                    const shortTitle = title.length > 15 ? title.substring(0, 15) + '...' : title;
+                    eventsHTML += `
+                        <div class="calendar-event ${event.type}" title="${title} - ${time}">
+                            <span class="event-time">${time}</span>
+                            <span class="event-title">${shortTitle}</span>
+                        </div>
+                    `;
                 });
-                dotsHTML += '</div>';
+                eventsHTML += '</div>';
             }
 
             calendarHTML += `
-                <div class="calendar-day ${isToday ? 'today' : ''}">
+                <div class="calendar-day ${isToday ? 'today' : ''} ${dayEvents.length > 0 ? 'has-events' : ''}">
                     <span class="calendar-day-number">${day}</span>
-                    ${dotsHTML}
+                    ${eventsHTML}
                 </div>
             `;
         }
@@ -491,43 +505,6 @@ const app = {
 
         calendarHTML += '</div>';
         document.getElementById('calendarGrid').innerHTML = calendarHTML;
-    },
-
-    renderCalendarList(filter = 'all') {
-        const container = document.getElementById('calendarList');
-        let events = this.data.events;
-
-        if (filter !== 'all') {
-            events = events.filter(e => e.type === filter);
-        }
-
-        events.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        if (events.length === 0) {
-            container.innerHTML = '<p style="color: var(--text-secondary);">Nessun evento trovato</p>';
-            return;
-        }
-
-        container.innerHTML = events.map(event => {
-            const date = new Date(event.date);
-            const isPast = date < new Date();
-            
-            return `
-                <div class="event-card ${event.type}">
-                    <div class="event-header">
-                        <div>
-                            <div class="event-title">${event.title}</div>
-                            <span class="event-type">${event.type === 'match' ? 'Partita' : 'Allenamento'}</span>
-                        </div>
-                    </div>
-                    <div class="event-details">
-                        <span>${date.toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}</span>
-                        <span>${event.time}</span>
-                        <span>${event.location}</span>
-                    </div>
-                </div>
-            `;
-        }).join('');
     },
 
     filterEvents(filter) {
