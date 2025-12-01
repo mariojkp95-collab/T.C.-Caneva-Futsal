@@ -320,10 +320,11 @@ const app = {
 
         container.innerHTML = matchesWithResults.map(match => {
             const date = match.date ? new Date(match.date) : null;
-            const [ourScore, theirScore] = match.result.split('-').map(s => parseInt(s.trim()));
-            const isWin = ourScore > theirScore;
-            const isDraw = ourScore === theirScore;
-            const isLoss = ourScore < theirScore;
+            // Il formato è sempre: TC Caneva - Avversario
+            const [tcScore, oppScore] = match.result.split('-').map(s => parseInt(s.trim()));
+            const isWin = tcScore > oppScore;
+            const isDraw = tcScore === oppScore;
+            const isLoss = tcScore < oppScore;
 
             return `
                 <div class="result-card ${isWin ? 'result-win' : isDraw ? 'result-draw' : 'result-loss'}">
@@ -342,16 +343,16 @@ const app = {
                         <div class="result-teams">
                             <div class="team team-home">
                                 <span class="team-name">TC Caneva</span>
-                                <span class="team-score">${ourScore}</span>
+                                <span class="team-score">${tcScore}</span>
                             </div>
                             <div class="result-separator">-</div>
                             <div class="team team-away">
-                                <span class="team-score">${theirScore}</span>
+                                <span class="team-score">${oppScore}</span>
                                 <span class="team-name">${match.opponent}</span>
                             </div>
                         </div>
                         <div class="result-info">
-                            ${match.homeAway === 'casa' ? 'Casa' : 'Trasferta'} • ${match.location || ''}
+                            ${match.homeAway === 'casa' ? '🏠 Casa' : '✈️ Trasferta'} • ${match.location || ''}
                         </div>
                     </div>
                 </div>
