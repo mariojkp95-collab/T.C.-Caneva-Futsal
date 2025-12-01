@@ -66,6 +66,13 @@ const app = {
                 e.preventDefault();
                 const page = link.dataset.page;
                 this.navigateTo(page);
+                // Chiude il menu mobile automaticamente
+                const menu = document.querySelector('.nav-menu');
+                const hamburger = document.querySelector('.hamburger');
+                if (menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
             });
         });
     },
@@ -200,7 +207,7 @@ const app = {
         const container = document.getElementById('playersList');
         
         if (this.data.players.length === 0) {
-            container.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--text-secondary); padding: 40px;">Nessun giocatore aggiunto</td></tr>';
+            container.innerHTML = '<tr><td colspan="2" style="text-align: center; color: var(--text-secondary); padding: 40px;">Nessun giocatore aggiunto</td></tr>';
             return;
         }
 
@@ -213,11 +220,6 @@ const app = {
             <tr onclick="app.showPlayerDetail('${player.id}')">
                 <td data-label="#">${player.number}</td>
                 <td data-label="Nome">${player.firstName} ${player.lastName}</td>
-                <td data-label="Ruolo">${player.position}</td>
-                <td data-label="Goal">${player.goals || 0}</td>
-                <td data-label="Assist">${player.assists || 0}</td>
-                <td data-label="MOTM">${player.motm || 0}</td>
-                <td><button class="view-details-btn" onclick="event.stopPropagation(); app.showPlayerDetail('${player.id}')">→</button></td>
             </tr>
         `).join('');
     },
