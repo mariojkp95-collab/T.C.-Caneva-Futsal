@@ -113,11 +113,14 @@ async function fetchAllData() {
             return {
                 id: record.id,
                 type: 'match',
-                title: fields.Avversario ? `TC Caneva vs ${fields.Avversario}` : 'Partita',
-                date: fields.Data || '',
-                time: fields.Ora || '',
-                location: fields.Luogo || '',
-                opponent: fields.Avversario || ''
+                title: fields.avversario ? `TC Caneva vs ${fields.avversario}` : 'Partita',
+                date: fields.data || '',
+                time: fields.ora || '',
+                location: fields.luogo || '',
+                opponent: fields.avversario || '',
+                result: fields.Risultato || '',
+                homeAway: fields['casa/trasf.'] || '',
+                round: fields['andata/ritorno'] || ''
             };
         });
 
@@ -136,6 +139,8 @@ async function fetchAllData() {
 
         const finalData = {
             players: players,
+            matches: matches,
+            trainings: trainings,
             events: [...matches, ...trainings]
         };
 

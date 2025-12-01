@@ -20,6 +20,7 @@
                 <ul class="nav-menu">
                     <li><a href="#dashboard" class="nav-link active" data-page="dashboard">Dashboard</a></li>
                     <li><a href="#players" class="nav-link" data-page="players">Giocatori</a></li>
+                    <li><a href="#results" class="nav-link" data-page="results">Risultati</a></li>
                     <li><a href="#calendar" class="nav-link" data-page="calendar">Calendario</a></li>
                     <li><a href="#stats" class="nav-link" data-page="stats">Classifiche</a></li>
                 </ul>
@@ -84,6 +85,21 @@
                                 <!-- Players will be loaded here -->
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Page -->
+            <div id="results" class="page">
+                <div class="container">
+                    <h2 class="page-title">Risultati</h2>
+                    <div class="results-filters">
+                        <button class="filter-btn active" data-filter="all">Tutte</button>
+                        <button class="filter-btn" data-filter="home">Casa</button>
+                        <button class="filter-btn" data-filter="away">Trasferta</button>
+                    </div>
+                    <div id="resultsList" class="results-list">
+                        <!-- Results will be loaded here -->
                     </div>
                 </div>
             </div>

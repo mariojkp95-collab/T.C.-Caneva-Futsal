@@ -24,7 +24,10 @@ const app = {
         if (typeof TEAM_DATA !== 'undefined') {
             this.data.players = TEAM_DATA.players;
             this.data.events = TEAM_DATA.events;
+            this.data.matches = TEAM_DATA.matches || [];
+            this.data.trainings = TEAM_DATA.trainings || [];
             console.log(`✓ Caricati ${this.data.players.length} giocatori`);
+            console.log(`✓ Caricati ${this.data.matches.length} partite`);
             console.log(`✓ Caricati ${this.data.events.length} eventi`);
         } else {
             console.warn('TEAM_DATA non trovato, uso dati demo');
@@ -132,6 +135,9 @@ const app = {
                 break;
             case 'players':
                 this.renderPlayers();
+                break;
+            case 'results':
+                this.renderResults();
                 break;
             case 'calendar':
                 this.renderCalendar();
@@ -292,6 +298,90 @@ const app = {
         `;
 
         document.getElementById('playerDetailModal').classList.add('active');
+    },
+
+    renderResults() {
+        const container = document.getElementById('resultsList');
+        
+        if (!this.data.matches || this.data.matches.length === 0) {
+            container.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 40px;">Nessun risultato disponibile</p>';
+            return;
+        }
+
+        // Filter matches with results and sort by date (most recent first)
+        const matchesWithResults = this.data.matches
+            .filter(m => m.result && m.result.trim() !== '')
+            .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        if (matchesWithResults.length === 0) {
+            container.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 40px;">Nessun risultato disponibile</p>';
+            return;
+        }
+
+        container.innerHTML = matchesWithResults.map(match => {
+            const date = match.date ? new Date(match.date) : null;
+            const [ourScore, theirScore] = match.result.split('-').map(s => parseInt(s.trim()));
+            const isWin = ourScore > theirScore;
+            const isDraw = ourScore === theirScore;
+            const isLoss = ourScore < theirScore;
+
+            return `
+                <div class="result-card ${isWin ? 'result-win' : isDraw ? 'result-draw' : 'result-loss'}">
+                    <div class="result-header">
+                        <div class="result-date">
+                            ${date ? `
+                                <div class="result-day">${date.getDate()}</div>
+                                <div class="result-month">${date.toLocaleDateString('it-IT', { month: 'short' })}</div>
+                            ` : ''}
+                        </div>
+                        <div class="result-badge ${isWin ? 'badge-win' : isDraw ? 'badge-draw' : 'badge-loss'}">
+                            ${isWin ? 'V' : isDraw ? 'P' : 'S'}
+                        </div>
+                    </div>
+                    <div class="result-body">
+                        <div class="result-teams">
+                            <div class="team team-home">
+                                <span class="team-name">TC Caneva</span>
+                                <span class="team-score">${ourScore}</span>
+                            </div>
+                            <div class="result-separator">-</div>
+                            <div class="team team-away">
+                                <span class="team-score">${theirScore}</span>
+                                <span class="team-name">${match.opponent}</span>
+                            </div>
+                        </div>
+                        <div class="result-info">
+                            ${match.homeAway === 'casa' ? 'Casa' : 'Trasferta'} • ${match.location || ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Setup filters
+        document.querySelectorAll('#results .filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('#results .filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                this.filterResults(e.target.dataset.filter);
+            });
+        });
+    },
+
+    filterResults(filter) {
+        const allResults = document.querySelectorAll('.result-card');
+        allResults.forEach(card => {
+            const info = card.querySelector('.result-info').textContent;
+            if (filter === 'all') {
+                card.style.display = 'block';
+            } else if (filter === 'home' && info.includes('Casa')) {
+                card.style.display = 'block';
+            } else if (filter === 'away' && info.includes('Trasferta')) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
     },
 
     renderCalendar(filter = 'all') {
