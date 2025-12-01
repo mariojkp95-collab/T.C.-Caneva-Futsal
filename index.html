@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T.C. Caneva Futsal - Team Management</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-container">
+                <h1 class="nav-logo">T.C. Caneva</h1>
+                <ul class="nav-menu">
+                    <li><a href="#dashboard" class="nav-link active" data-page="dashboard">Dashboard</a></li>
+                    <li><a href="#players" class="nav-link" data-page="players">Giocatori</a></li>
+                    <li><a href="#calendar" class="nav-link" data-page="calendar">Calendario</a></li>
+                    <li><a href="#stats" class="nav-link" data-page="stats">Classifiche</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <div id="dashboard" class="page active">
+                <div class="container">
+                    <h2 class="page-title">Dashboard</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value" id="totalPlayers">0</div>
+                            <div class="stat-label">Giocatori Totali</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="upcomingEvents">0</div>
+                            <div class="stat-label">Prossimi Eventi</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="totalGoals">0</div>
+                            <div class="stat-label">Goal Stagione</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="matchesPlayed">0</div>
+                            <div class="stat-label">Partite Giocate</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3>Prossimi Eventi</h3>
+                        <div id="upcomingEventsList" class="event-list">
+                            <!-- Events will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Players Page -->
+            <div id="players" class="page">
+                <div class="container">
+                    <div class="page-header">
+                        <h2 class="page-title">Giocatori</h2>
+                        <button class="btn btn-primary" onclick="app.showAddPlayerModal()">+ Aggiungi Giocatore</button>
+                    </div>
+                    <div class="players-table-container">
+                        <table class="players-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Nome</th>
+                                    <th>Cognome</th>
+                                    <th>Ruolo</th>
+                                    <th>Goal</th>
+                                    <th>Assist</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="playersList">
+                                <!-- Players will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Page -->
+            <div id="calendar" class="page">
+                <div class="container">
+                    <div class="page-header">
+                        <h2 class="page-title">Calendario</h2>
+                        <button class="btn btn-primary" onclick="app.showAddEventModal()">+ Aggiungi Evento</button>
+                    </div>
+                    <div class="calendar-filters">
+                        <button class="filter-btn active" data-filter="all">Tutti</button>
+                        <button class="filter-btn" data-filter="match">Partite</button>
+                        <button class="filter-btn" data-filter="training">Allenamenti</button>
+                    </div>
+                    <div id="calendarList" class="calendar-list">
+                        <!-- Events will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Page -->
+            <div id="stats" class="page">
+                <div class="container">
+                    <h2 class="page-title">Classifiche</h2>
+                    <div class="stats-tabs">
+                        <button class="tab-btn active" data-tab="goals">Goal</button>
+                        <button class="tab-btn" data-tab="assists">Goal + Assist</button>
+                        <button class="tab-btn" data-tab="motm">Man of the Match</button>
+                        <button class="tab-btn" data-tab="potw">Player of the Week</button>
+                        <button class="tab-btn" data-tab="potm">Player of the Month</button>
+                    </div>
+                    <div id="statsContent" class="stats-content">
+                        <!-- Stats will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Player Detail Modal -->
+    <div id="playerDetailModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 id="playerDetailName">Dettagli Giocatore</h3>
+                <button class="modal-close" onclick="app.closeModal('playerDetailModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="playerDetailContent">
+                    <!-- Player details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Player Modal -->
+    <div id="addPlayerModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Aggiungi Giocatore</h3>
+                <button class="modal-close" onclick="app.closeModal('addPlayerModal')">&times;</button>
+            </div>
+            <form id="addPlayerForm" class="form">
+                <div class="form-section">
+                    <h4>Informazioni Base</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nome *</label>
+                            <input type="text" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cognome *</label>
+                            <input type="text" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Sesso</label>
+                            <select name="gender">
+                                <option value="">Seleziona...</option>
+                                <option value="M">M</option>
+                                <option value="F">F</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Ruolo *</label>
+                            <select name="position" required>
+                                <option value="">Seleziona...</option>
+                                <option value="Portiere">Portiere</option>
+                                <option value="Difensore">Difensore</option>
+                                <option value="Centrocampista">Centrocampista</option>
+                                <option value="Attaccante">Attaccante</option>
+                                <option value="Pivot">Pivot</option>
+                                <option value="Laterale">Laterale</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Dati Anagrafici</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Data di Nascita</label>
+                            <input type="date" name="birthDate">
+                        </div>
+                        <div class="form-group">
+                            <label>Luogo di Nascita</label>
+                            <input type="text" name="birthPlace">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Codice Fiscale</label>
+                            <input type="text" name="fiscalCode" maxlength="16">
+                        </div>
+                        <div class="form-group">
+                            <label>Carta d'Identità</label>
+                            <input type="text" name="idCard">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Residenza</h4>
+                    <div class="form-row">
+                        <div class="form-group" style="flex: 3;">
+                            <label>Indirizzo</label>
+                            <input type="text" name="address">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>N. Civico</label>
+                            <input type="text" name="streetNumber">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Città</label>
+                            <input type="text" name="city">
+                        </div>
+                        <div class="form-group">
+                            <label>Provincia</label>
+                            <input type="text" name="province" maxlength="2">
+                        </div>
+                        <div class="form-group">
+                            <label>C.A.P.</label>
+                            <input type="text" name="postalCode" maxlength="5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Contatti</h4>
+                    <div class="form-row">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Prefisso</label>
+                            <input type="text" name="phonePrefix" placeholder="+39">
+                        </div>
+                        <div class="form-group" style="flex: 3;">
+                            <label>Telefono</label>
+                            <input type="tel" name="phone">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Equipaggiamento</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Numero Maglia *</label>
+                            <input type="number" name="jerseyNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Taglia</label>
+                            <select name="size">
+                                <option value="">Seleziona...</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Muta</label>
+                            <input type="text" name="kit">
+                        </div>
+                        <div class="form-group">
+                            <label>Borsa</label>
+                            <input type="text" name="bag">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Felpa/Giubbotto</label>
+                            <input type="text" name="jacket">
+                        </div>
+                        <div class="form-group">
+                            <label>Maglia Allenamento</label>
+                            <input type="text" name="jerseyTraining">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="app.closeModal('addPlayerModal')">Annulla</button>
+                    <button type="submit" class="btn btn-primary">Salva Giocatore</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Event Modal -->
+    <div id="addEventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Aggiungi Evento</h3>
+                <button class="modal-close" onclick="app.closeModal('addEventModal')">&times;</button>
+            </div>
+            <form id="addEventForm" class="form">
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <select name="type" required>
+                        <option value="match">Partita</option>
+                        <option value="training">Allenamento</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Titolo</label>
+                    <input type="text" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label>Data</label>
+                    <input type="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Ora</label>
+                    <input type="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label>Luogo</label>
+                    <input type="text" name="location" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="app.closeModal('addEventModal')">Annulla</button>
+                    <button type="submit" class="btn btn-primary">Salva</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,968 @@
+Scaricando dati da Airtable...
+
+✓ Giocatori: 54
+✓ Partite: 36
+✓ Allenamenti: 11
+✓ Gol: 51
+
+
+=== DATI ESTRATTI ===
+
+{
+  "players": [
+    {
+      "id": "rec1rpIyF3P2Qwj0e",
+      "firstName": "Andrea",
+      "lastName": "Zaghet",
+      "number": 0,
+      "position": "",
+      "goals": 9,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "rec2byQ6G99AmPuNp",
+      "firstName": "Riccardo",
+      "lastName": "Montagner",
+      "number": 0,
+      "position": "",
+      "goals": 1,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "rec3vqVuZeACEBuG4",
+      "firstName": "Nicholas",
+      "lastName": "Moras",
+      "number": 0,
+      "position": "",
+      "goals": 3,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "rec4DFFh69j5mVO5w",
+      "firstName": "Raffaele",
+      "lastName": "De Nuzzo",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "rec4XZLyd5UyFODtJ",
+      "firstName": "Manuel",
+      "lastName": "Michelin",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "rec72aqwXtlPTiny1",
+      "firstName": "Francesco Saverio ",
+      "lastName": "Furia",
+      "number": 0,
+      "position": "",
+      "goals": 2,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "rec7iCUdx08osmZro",
+      "firstName": "Daniele",
+      "lastName": "Carlet",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "rec8RtRKH93DQcIIr",
+      "firstName": "Mauro",
+      "lastName": "Giust",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "rec8SGRB76YfdlkLt",
+      "firstName": "Behar",
+      "lastName": "Dervishi",
+      "number": 0,
+      "position": "",
+      "goals": 7,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recB5LQB9exqpakZc",
+      "firstName": "Matteo",
+      "lastName": "Astolfi",
+      "number": 0,
+      "position": "",
+      "goals": 3,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recCOWy6GQlIvRXGR",
+      "firstName": "Lorenzo",
+      "lastName": "Muraj",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recDWTBiz2T63HYwF",
+      "firstName": "Antonio Frangella",
+      "lastName": "Martin",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recDnlqCISrVMdX3x",
+      "firstName": "Mateo",
+      "lastName": "Sheshi",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recFH3er7LQMWm0HQ",
+      "firstName": "Andreea Alexandra",
+      "lastName": "Lefter",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recG1RhGqjvCtD4Zu",
+      "firstName": "Giovanni",
+      "lastName": "Brugnone",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recHwPGWy9yHpNeys",
+      "firstName": "Davide",
+      "lastName": "Viol ",
+      "number": 0,
+      "position": "",
+      "goals": 2,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recJU4u5OW1bHxg0r",
+      "firstName": "Romario",
+      "lastName": "Jakupi",
+      "number": 0,
+      "position": "",
+      "goals": 2,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recLE0dySh7GkE8vc",
+      "firstName": "Arber",
+      "lastName": "Gorenca",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recLjnE4TixUrmAzC",
+      "firstName": "Noah Gabriel",
+      "lastName": "Zandonà",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recLjqX6GwPCOiZXM",
+      "firstName": "Simone",
+      "lastName": "De Marco",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recMkr6vXGz9ZQ56C",
+      "firstName": "Davide",
+      "lastName": "Morellato",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recNmbeA2lbaghPP9",
+      "firstName": "Brantil",
+      "lastName": "Cupa",
+      "number": 0,
+      "position": "",
+      "goals": 11,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recQAgdtbcaUfYLWo",
+      "firstName": "Davide",
+      "lastName": "Sandrin",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recQGRV3RUOm0UXbY",
+      "firstName": "Nicola",
+      "lastName": "Rosolen",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recUH9ulSbQ7QW0ga",
+      "firstName": "Alex",
+      "lastName": "De Zan",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recUPDB3zyglfUpip",
+      "firstName": "Marco",
+      "lastName": "Lombino",
+      "number": 0,
+      "position": "",
+      "goals": 1,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recVBOI7MCS1Mnd76",
+      "firstName": "Matteo",
+      "lastName": "Lot",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recXEmufw25jSea4c",
+      "firstName": "Andrea",
+      "lastName": "Breda",
+      "number": 0,
+      "position": "",
+      "goals": 4,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recXhHyZr0yd5KZCx",
+      "firstName": "Andrea",
+      "lastName": "Tavian",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recYhzOsFEjS7YRa4",
+      "firstName": "Ivan",
+      "lastName": "Carlet",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "reca1jjvIhiL7eoD7",
+      "firstName": "Andrea",
+      "lastName": "Nadal",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "reccnLX2H7KZwdzDR",
+      "firstName": "Mosè",
+      "lastName": "Viol ",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recdookEHLf71ZYMc",
+      "firstName": "Federico",
+      "lastName": "Di Lollo",
+      "number": 0,
+      "position": "",
+      "goals": 2,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recf6DBwRRuuw36FV",
+      "firstName": "Luca",
+      "lastName": "Stefanizzi",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recfwGgn90RazSnnb",
+      "firstName": "Diego",
+      "lastName": "Modolo ",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recgI7ErafdFEpbqT",
+      "firstName": "Johann",
+      "lastName": "De Martin",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "rechqTGpBcBQlmR7O",
+      "firstName": "Klevis",
+      "lastName": "Cupa",
+      "number": 0,
+      "position": "",
+      "goals": 4,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recipQkJ8ihU67WYg",
+      "firstName": "Nicholas",
+      "lastName": "De Martin",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "reckPfRXt34POoO9L",
+      "firstName": "Elia",
+      "lastName": "Viol ",
+      "number": 0,
+      "position": "",
+      "goals": 5,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "reckRtTUTXW6pvfJ9",
+      "firstName": "Davide",
+      "lastName": "Manfè",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "reckWEgVwuKSG9HRe",
+      "firstName": "Luciano",
+      "lastName": "Zandonà",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "reckcb1e1J6LW6Pdc",
+      "firstName": "Ymer",
+      "lastName": "Hasanbelli",
+      "number": 0,
+      "position": "",
+      "goals": 4,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "reclQ5oWXgWcvmgmL",
+      "firstName": "Manuele",
+      "lastName": "Santarossa",
+      "number": 0,
+      "position": "",
+      "goals": 2,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recmG5btZS47M49zg",
+      "firstName": "Manuel Claudio",
+      "lastName": "Querinuzzi",
+      "number": 0,
+      "position": "",
+      "goals": 5,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recpCx9W3fLxYfFIb",
+      "firstName": "Lorenzo",
+      "lastName": "Roman",
+      "number": 0,
+      "position": "",
+      "goals": 3,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recqnSifca2Lu7jRa",
+      "firstName": "Egli",
+      "lastName": "Cupa",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recs9GBgsUNyEBOjn",
+      "firstName": "Andrea",
+      "lastName": "Tarozzo",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recv2Lyc1Wk0DEumW",
+      "firstName": "Tommaso",
+      "lastName": "Feltrin",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recvUJPXHiSTcE0Ea",
+      "firstName": "Kevin",
+      "lastName": "Bessega",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recx3LzNKL7YJXJun",
+      "firstName": "Daniele",
+      "lastName": "Toffoli",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recxUtvO909Ilhftm",
+      "firstName": "Denis",
+      "lastName": "Antonutti",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recxcMZkwojRT9pGk",
+      "firstName": "Nicola",
+      "lastName": "Malnis",
+      "number": 0,
+      "position": "",
+      "goals": 0,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "recxlbCzejuWkUw7I",
+      "firstName": "Giuliano",
+      "lastName": "Cupa",
+      "number": 0,
+      "position": "",
+      "goals": 3,
+      "assists": 0,
+      "motm": 0
+    },
+    {
+      "id": "reczYHG8kWsSsSzgA",
+      "firstName": "Matteo",
+      "lastName": "Carlet",
+      "number": 0,
+      "position": "",
+      "goals": 2,
+      "assists": 0,
+      "motm": 0
+    }
+  ],
+  "events": [
+    {
+      "id": "rec1tn8pZZrsClnXM",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "rec29XncaDZ1il2LP",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "rec2lcgeWoEIjYIC6",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "rec3F8UazHsXAJcTt",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "rec3LkVMF4FmZ0uYA",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "rec3im6xNe7j9CrZP",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "rec3zj3tSnO0IzOqF",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "rec4oEgIcH3vivdga",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recAL7oAGLqyvgyx4",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recBmIO9wCikSA01D",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recDAzLnpPRLzPnKl",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recDMiOZV98zKfKaT",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recEMUk5PaeoIQzC6",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recEaGnxMoz0hbM4Z",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recFikcX4135keURD",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recHK7tbomPmaVVyG",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recQNnsIvhcZTojfa",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recQzHSlVra1JU4yP",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recUZvKUVy4DmTI3Y",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recV1a6vmvQwPjh4M",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recW731hixsbngLyb",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recXNhEW5zHMDFdXE",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recYvei6zTqkUjonx",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recg5pAiv7sRSEXrv",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "rechUan3g8uBwLaL2",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recifWHt5FmmKWgg8",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recjfk8IygZGq7TcH",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recmmoOg2QmXQXlve",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "reco0LuLWHzlV2t3j",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recoKVFtdCi0xJTGO",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recrUR9kIAOq6pl5N",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recsEEZLpPzDAzrel",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "rectACT7lXDleEGL5",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recw6MXBm1KG1CFXo",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recwVkNFEN8JyQhBQ",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "recxvu5EEXgqAsFDG",
+      "type": "match",
+      "title": "Partita",
+      "date": "",
+      "time": "",
+      "location": "",
+      "opponent": ""
+    },
+    {
+      "id": "rec3ocuazTMO1Ndx3",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    {
+      "id": "rec4GUj2OZsgFZRb1",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    {
+      "id": "rec5mDhvUpUtpnKDy",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    {
+      "id": "rec5uAjK1Ds6p1wA3",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    {
+      "id": "rec7b7Xx5h0BqvLgp",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    {
+      "id": "rec9lSTh5sHGMApjU",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    {
+      "id": "recNQDKG7cbtXjzKN",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    {
+      "id": "recXREj36QwTNvz7y",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    {
+      "id": "reccUOX2btwLUxTaf",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    {
+      "id": "rech9lmvj9m7ggbbK",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    },
+    {
+      "id": "rechG4sFM0NarecXh",
+      "type": "training",
+      "title": "Allenamento",
+      "date": "",
+      "time": "",
+      "location": ""
+    }
+  ]
+}
