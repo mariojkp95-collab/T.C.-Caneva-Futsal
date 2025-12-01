@@ -221,6 +221,8 @@ body {
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .players-table {
@@ -902,6 +904,30 @@ body {
 .modal-header h3 {
     font-size: 20px;
     font-weight: 600;
+}
+
+.modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal-edit-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.modal-edit-btn:hover {
+    background: var(--bg-secondary);
+    color: var(--accent-primary);
 }
 
 .modal-close {
