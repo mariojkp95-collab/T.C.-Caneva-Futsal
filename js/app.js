@@ -320,8 +320,15 @@ const app = {
 
         container.innerHTML = matchesWithResults.map(match => {
             const date = match.date ? new Date(match.date) : null;
-            // Il formato è sempre: TC Caneva - Avversario
-            const [tcScore, oppScore] = match.result.split('-').map(s => parseInt(s.trim()));
+            
+            // Il formato dipende da casa/trasferta:
+            // Casa: TC Caneva - Avversario
+            // Trasferta: Avversario - TC Caneva
+            const [score1, score2] = match.result.split('-').map(s => parseInt(s.trim()));
+            const isHome = match.homeAway === 'casa';
+            const tcScore = isHome ? score1 : score2;
+            const oppScore = isHome ? score2 : score1;
+            
             const isWin = tcScore > oppScore;
             const isDraw = tcScore === oppScore;
             const isLoss = tcScore < oppScore;
@@ -352,7 +359,7 @@ const app = {
                             </div>
                         </div>
                         <div class="result-info">
-                            ${match.homeAway === 'casa' ? '🏠 Casa' : '✈️ Trasferta'} • ${match.location || ''}
+                            ${match.homeAway === 'casa' ? 'Casa' : 'Trasferta'} • ${match.location || ''}
                         </div>
                     </div>
                 </div>
