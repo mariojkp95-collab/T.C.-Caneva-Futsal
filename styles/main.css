@@ -59,6 +59,37 @@ body {
     color: var(--text-primary);
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 101;
+}
+
+.hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -718,15 +749,42 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
     .nav-container {
-        flex-direction: column;
-        height: auto;
-        padding: 16px 24px;
+        height: 64px;
+        padding: 0 16px;
     }
 
     .nav-menu {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        flex-direction: column;
+        gap: 0;
+        padding: 16px;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-link {
         width: 100%;
-        overflow-x: auto;
+        padding: 12px 16px;
+        border-radius: var(--radius-sm);
     }
 
     .stats-grid {
@@ -747,13 +805,87 @@ body {
         padding: 20px 16px;
     }
 
+    /* Tabella giocatori ottimizzata per mobile */
     .players-table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        overflow: visible;
     }
 
     .players-table {
-        min-width: 600px;
+        display: block;
+        width: 100%;
+    }
+
+    .players-table thead {
+        display: none;
+    }
+
+    .players-table tbody {
+        display: block;
+    }
+
+    .players-table tr {
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-primary);
+        border-radius: var(--radius-sm);
+        padding: 16px;
+        margin-bottom: 12px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+    }
+
+    .players-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border: none;
+    }
+
+    .players-table td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--text-secondary);
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .players-table td:first-child {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--accent-primary);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 12px;
+        margin-bottom: 8px;
+    }
+
+    .players-table td:first-child:before {
+        content: '';
+    }
+
+    .players-table td:last-child {
+        padding-top: 12px;
+        border-top: 1px solid var(--border-color);
+    }
+
+    /* Tabelle stats ottimizzate */
+    .stats-table {
+        font-size: 13px;
+    }
+
+    .stats-table th,
+    .stats-table td {
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .stats-table th:first-child,
+    .stats-table td:first-child {
+        width: 40px;
+    }
+
+    .stats-table th:last-child,
+    .stats-table td:last-child {
+        min-width: 80px;
     }
 
     .modal {
@@ -799,6 +931,16 @@ body {
         padding: 10px 16px;
         font-size: 13px;
     }
+
+    .event-item {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .event-date {
+        margin-right: 0;
+        text-align: left;
+    }
 }
 
 @media (max-width: 480px) {
@@ -812,11 +954,6 @@ body {
 
     .nav-logo {
         font-size: 18px;
-    }
-
-    .nav-link {
-        font-size: 13px;
-        padding: 8px 12px;
     }
 
     .page-title {

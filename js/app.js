@@ -203,15 +203,22 @@ const app = {
 
         container.innerHTML = sortedPlayers.map(player => `
             <tr onclick="app.showPlayerDetail('${player.id}')">
-                <td><span class="player-number-badge">${player.number}</span></td>
-                <td class="player-name-cell">${player.firstName}</td>
-                <td class="player-name-cell">${player.lastName}</td>
-                <td><span class="player-position-badge">${player.position}</span></td>
-                <td><span class="player-stat-number">${player.goals || 0}</span></td>
-                <td><span class="player-stat-number">${player.assists || 0}</span></td>
-                <td><button class="view-details-btn" onclick="event.stopPropagation(); app.showPlayerDetail('${player.id}')">Dettagli</button></td>
+                <td data-label="#">${player.number}</td>
+                <td data-label="Nome">${player.firstName} ${player.lastName}</td>
+                <td data-label="Ruolo">${player.position}</td>
+                <td data-label="Goal">${player.goals || 0}</td>
+                <td data-label="Assist">${player.assists || 0}</td>
+                <td data-label="MOTM">${player.motm || 0}</td>
+                <td><button class="view-details-btn" onclick="event.stopPropagation(); app.showPlayerDetail('${player.id}')">→</button></td>
             </tr>
         `).join('');
+    },
+
+    toggleMenu() {
+        const menu = document.querySelector('.nav-menu');
+        const hamburger = document.querySelector('.hamburger');
+        menu.classList.toggle('active');
+        hamburger.classList.toggle('active');
     },
 
     showPlayerDetail(playerId) {
