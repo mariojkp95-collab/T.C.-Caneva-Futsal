@@ -6,14 +6,21 @@
 }
 
 :root {
+    /* Colori sociali T.C. Caneva */
+    --team-yellow: #FFD700;
+    --team-blue: #0047AB;
+    --team-yellow-light: #FFE55C;
+    --team-blue-light: #336DCC;
+    
     /* Apple/Google inspired neutral colors */
     --bg-primary: #ffffff;
     --bg-secondary: #f5f5f7;
     --bg-tertiary: #e8e8ed;
     --text-primary: #1d1d1f;
     --text-secondary: #6e6e73;
-    --accent-primary: #007aff;
-    --accent-hover: #0051d5;
+    --accent-primary: var(--team-blue);
+    --accent-hover: #003580;
+    --accent-secondary: var(--team-yellow);
     --border-color: #d2d2d7;
     --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);

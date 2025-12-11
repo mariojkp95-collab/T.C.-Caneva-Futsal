@@ -151,56 +151,12 @@ const app = {
             case 'calendar':
                 this.renderCalendar();
                 break;
-            case 'stats':
-                this.renderStats();
-                break;
         }
     },
 
     renderDashboard() {
-        // Update stats
-        document.getElementById('totalPlayers').textContent = this.data.players.length;
-        
-        const upcomingEvents = this.data.events.filter(e => new Date(e.date) >= new Date()).length;
-        document.getElementById('upcomingEvents').textContent = upcomingEvents;
-        
-        const totalGoals = this.data.players.reduce((sum, p) => sum + (p.goals || 0), 0);
-        document.getElementById('totalGoals').textContent = totalGoals;
-        
-        document.getElementById('matchesPlayed').textContent = 
-            this.data.events.filter(e => e.type === 'match' && new Date(e.date) < new Date()).length;
-
-        // Render upcoming events
-        this.renderUpcomingEvents();
-    },
-
-    renderUpcomingEvents() {
-        const container = document.getElementById('upcomingEventsList');
-        const upcoming = this.data.events
-            .filter(e => new Date(e.date) >= new Date())
-            .sort((a, b) => new Date(a.date) - new Date(b.date))
-            .slice(0, 5);
-
-        if (upcoming.length === 0) {
-            container.innerHTML = '<p style="color: var(--text-secondary);">Nessun evento in programma</p>';
-            return;
-        }
-
-        container.innerHTML = upcoming.map(event => {
-            const date = new Date(event.date);
-            return `
-                <div class="event-item">
-                    <div class="event-date">
-                        <div class="event-day">${date.getDate()}</div>
-                        <div class="event-month">${date.toLocaleDateString('it-IT', { month: 'short' })}</div>
-                    </div>
-                    <div class="event-info">
-                        <strong>${event.title}</strong>
-                        <small>${event.time} - ${event.location}</small>
-                    </div>
-                </div>
-            `;
-        }).join('');
+        // Render classifica nella home
+        this.renderStats();
     },
 
     renderPlayers() {

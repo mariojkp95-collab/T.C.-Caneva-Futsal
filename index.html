@@ -18,45 +18,29 @@
                 </button>
                 <h1 class="nav-logo">T.C. Caneva</h1>
                 <ul class="nav-menu">
-                    <li><a href="#dashboard" class="nav-link active" data-page="dashboard">Dashboard</a></li>
+                    <li><a href="#dashboard" class="nav-link active" data-page="dashboard">Home</a></li>
                     <li><a href="#players" class="nav-link" data-page="players">Giocatori</a></li>
                     <li><a href="#results" class="nav-link" data-page="results">Risultati</a></li>
                     <li><a href="#calendar" class="nav-link" data-page="calendar">Calendario</a></li>
-                    <li><a href="#stats" class="nav-link" data-page="stats">Classifiche</a></li>
                 </ul>
             </div>
         </nav>
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Dashboard Page -->
+            <!-- Home Page -->
             <div id="dashboard" class="page active">
                 <div class="container">
-                    <h2 class="page-title">Dashboard</h2>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-value" id="totalPlayers">0</div>
-                            <div class="stat-label">Giocatori Totali</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value" id="upcomingEvents">0</div>
-                            <div class="stat-label">Prossimi Eventi</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value" id="totalGoals">0</div>
-                            <div class="stat-label">Goal Stagione</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value" id="matchesPlayed">0</div>
-                            <div class="stat-label">Partite Giocate</div>
-                        </div>
+                    <h2 class="page-title">Home</h2>
+                    <div class="stats-tabs">
+                        <button class="tab-btn active" data-tab="goals">Goal</button>
+                        <button class="tab-btn" data-tab="assists">Goal + Assist</button>
+                        <button class="tab-btn" data-tab="motm">Man of the Match</button>
+                        <button class="tab-btn" data-tab="potw">Player of the Week</button>
+                        <button class="tab-btn" data-tab="potm">Player of the Month</button>
                     </div>
-
-                    <div class="section">
-                        <h3>Prossimi Eventi</h3>
-                        <div id="upcomingEventsList" class="event-list">
-                            <!-- Events will be loaded here -->
-                        </div>
+                    <div id="statsContent" class="stats-content">
+                        <!-- Stats will be loaded here -->
                     </div>
                 </div>
             </div>
@@ -123,22 +107,7 @@
                 </div>
             </div>
 
-            <!-- Stats Page -->
-            <div id="stats" class="page">
-                <div class="container">
-                    <h2 class="page-title">Classifiche</h2>
-                    <div class="stats-tabs">
-                        <button class="tab-btn active" data-tab="goals">Goal</button>
-                        <button class="tab-btn" data-tab="assists">Goal + Assist</button>
-                        <button class="tab-btn" data-tab="motm">Man of the Match</button>
-                        <button class="tab-btn" data-tab="potw">Player of the Week</button>
-                        <button class="tab-btn" data-tab="potm">Player of the Month</button>
-                    </div>
-                    <div id="statsContent" class="stats-content">
-                        <!-- Stats will be loaded here -->
-                    </div>
-                </div>
-            </div>
+
         </main>
     </div>
 
